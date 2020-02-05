@@ -1,25 +1,25 @@
--- создание базы данных example 
+-- СЃРѕР·РґР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… example 
 CREATE DATABASE example;
 USE example;
 
--- создание таблицы users в базе данных example
+-- СЃРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ users РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С… example
 CREATE TABLE if not exists users (
 	id SERIAL,
 	name VARCHAR(255) NOT NULL
 );
 
--- создание дампа базы данных example
+-- СЃРѕР·РґР°РЅРёРµ РґР°РјРїР° Р±Р°Р·С‹ РґР°РЅРЅС‹С… example
 mysqldump example > example.sql
 
 CREATE DATABASE sample;
 
--- загрузка дампа в новую базу данных sample
+-- Р·Р°РіСЂСѓР·РєР° РґР°РјРїР° РІ РЅРѕРІСѓСЋ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… sample
 mysql sample < example.sql
 
 USE sample;
 SHOW TABLES;
 
--- Задание 4
+-- Р—Р°РґР°РЅРёРµ 4
 
 mysqldump mysql help_keyword --where='TRUE LIMIT 100' > help_keyword_100.sql
 
