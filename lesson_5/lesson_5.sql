@@ -153,7 +153,9 @@ USE shop;
 
 -- Подсчет количества дней рождений в опредленный день недели
 
-SELECT day_of_week, COUNT(day_of_week) AS n_of_bdays_on_diff_days
+SELECT day_of_week, 
+       day_of_week_name,
+       COUNT(day_of_week) AS n_of_bdays_on_diff_days
 FROM
   (SELECT DAYOFWEEK(birthday) AS day_of_week, DAYNAME(birthday) AS day_of_week_name
   FROM 
@@ -161,7 +163,7 @@ FROM
       SELECT REPLACE (birthday_at, SUBSTRING(birthday_at, 1, 4), '2020') AS birthday FROM users
     ) a
   ) b
-GROUP BY day_of_week
+GROUP BY day_of_week, day_of_week_name
 ORDER BY day_of_week
 ;
 
